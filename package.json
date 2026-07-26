@@ -1,0 +1,25 @@
+{
+  "name": "vc-brain",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.12.3",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "typecheck": "turbo typecheck",
+    "check": "pnpm typecheck && pnpm build",
+    "dev:web": "pnpm --filter @vc-brain/web dev",
+    "dev:api": "pnpm --filter @vc-brain/api dev",
+    "dev:workers": "pnpm --filter @vc-brain/workers dev",
+    "dev:scheduler": "pnpm --filter @vc-brain/scheduler dev",
+    "dev:infra": "docker compose -f infra/docker-compose.yml up -d mongo redis neo4j",
+    "docker:up": "docker compose -f infra/docker-compose.yml up --build",
+    "docker:down": "docker compose -f infra/docker-compose.yml down -v"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "tsx": "^4.19.4",
+    "turbo": "^2.0.14",
+    "typescript": "^5.8.3"
+  }
+}
